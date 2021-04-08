@@ -2,5 +2,163 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "cm-ngx-video-lazyloader": {
+      "projectType": "library",
+      "root": "projects/cm-ngx-video-lazyloader",
+      "sourceRoot": "projects/cm-ngx-video-lazyloader/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cm-ngx-video-lazyloader/tsconfig.lib.json",
+            "project": "projects/cm-ngx-video-lazyloader/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cm-ngx-video-lazyloader/src/test.ts",
+            "tsConfig": "projects/cm-ngx-video-lazyloader/tsconfig.spec.json",
+            "karmaConfig": "projects/cm-ngx-video-lazyloader/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cm-ngx-video-lazyloader/tsconfig.lib.json",
+              "projects/cm-ngx-video-lazyloader/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cm-ngx-video-lazyloader-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cm-ngx-video-lazyloader-demo",
+      "sourceRoot": "projects/cm-ngx-video-lazyloader-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cm-ngx-video-lazyloader-demo",
+            "index": "projects/cm-ngx-video-lazyloader-demo/src/index.html",
+            "main": "projects/cm-ngx-video-lazyloader-demo/src/main.ts",
+            "polyfills": "projects/cm-ngx-video-lazyloader-demo/src/polyfills.ts",
+            "tsConfig": "projects/cm-ngx-video-lazyloader-demo/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/cm-ngx-video-lazyloader-demo/src/favicon.ico",
+              "projects/cm-ngx-video-lazyloader-demo/src/assets"
+            ],
+            "styles": [
+              "projects/cm-ngx-video-lazyloader-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cm-ngx-video-lazyloader-demo/src/environments/environment.ts",
+                  "with": "projects/cm-ngx-video-lazyloader-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cm-ngx-video-lazyloader-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cm-ngx-video-lazyloader-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cm-ngx-video-lazyloader-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cm-ngx-video-lazyloader-demo/src/test.ts",
+            "polyfills": "projects/cm-ngx-video-lazyloader-demo/src/polyfills.ts",
+            "tsConfig": "projects/cm-ngx-video-lazyloader-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/cm-ngx-video-lazyloader-demo/karma.conf.js",
+            "assets": [
+              "projects/cm-ngx-video-lazyloader-demo/src/favicon.ico",
+              "projects/cm-ngx-video-lazyloader-demo/src/assets"
+            ],
+            "styles": [
+              "projects/cm-ngx-video-lazyloader-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cm-ngx-video-lazyloader-demo/tsconfig.app.json",
+              "projects/cm-ngx-video-lazyloader-demo/tsconfig.spec.json",
+              "projects/cm-ngx-video-lazyloader-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cm-ngx-video-lazyloader-demo/e2e/protractor.conf.js",
+            "devServerTarget": "cm-ngx-video-lazyloader-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cm-ngx-video-lazyloader-demo:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "cm-ngx-video-lazyloader"
 }
