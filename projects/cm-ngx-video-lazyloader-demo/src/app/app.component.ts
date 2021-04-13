@@ -1,18 +1,15 @@
-import { CmNgxVideoLazyloaderService } from './../../../cm-ngx-video-lazyloader/src/lib/cm-ngx-video-lazyloader.service';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'cm-ngx-video-lazyloader-demo';
+  showChild = false;
 
-  constructor(private lazyLoaderService: CmNgxVideoLazyloaderService) {
-  }
-
-  ngAfterViewInit() {
-    this.lazyLoaderService.lazyLoadVideos();
+  constructor() {
   }
 }

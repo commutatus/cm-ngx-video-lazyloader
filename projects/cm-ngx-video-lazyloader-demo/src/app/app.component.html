@@ -377,6 +377,7 @@
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     </a>
 
+    <button (click)="showChild = !showChild">{{showChild ? 'Hide child component' : 'Load child component'}}</button>
   </div>
 
   <!-- Next Steps -->
@@ -506,10 +507,21 @@
   </div>
 
   <div class="card-container">
-    <video class="f-card-video cm-angular-lazyloader" loop autoplay muted id="{{ 'gte-video' + 0 }}" poster="https://cdn-expa.aiesec.org/assets/videos/cards-video/Americas-poster.jpg">
+    <video libLazyloadVideo [lazyLoadPoster]="true" class="f-card-video" loop autoplay muted id="{{ 'gte-video' + 0 }}" data-poster="https://cdn-expa.aiesec.org/assets/videos/cards-video/Americas-poster.jpg">
       <source data-src="https://cdn-expa.aiesec.org/assets/videos/cards-video/Americas.mp4" type="video/mp4" />
       Browser not supported
     </video>
+  </div>
+
+  <div class="card-container">
+    <video libLazyloadVideo class="f-card-video" loop autoplay muted id="{{ 'gte-video' + 1 }}" data-poster="https://cdn-expa.aiesec.org/assets/videos/cards-video/marketing-poster.png">
+      <source data-src="https://cdn-expa.aiesec.org/assets/videos/cards-video/marketing.mp4" type="video/mp4" />
+      Browser not supported
+    </video>
+  </div>
+
+  <div class="card-container" *ngIf="showChild">
+    <app-child></app-child>
   </div>
 
   <!-- Footer -->

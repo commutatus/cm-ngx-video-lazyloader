@@ -1,12 +1,9 @@
+import { CmNgxVideoLazyloaderDirective } from './cm-ngx-video-lazyloader.directive';
 import { NgModule } from '@angular/core';
-import { CmNgxVideoLazyloaderComponent } from './cm-ngx-video-lazyloader.component';
-
-
-
 @NgModule({
-  declarations: [CmNgxVideoLazyloaderComponent],
+  declarations: [CmNgxVideoLazyloaderDirective],
   imports: [
   ],
-  exports: [CmNgxVideoLazyloaderComponent]
+  exports: [CmNgxVideoLazyloaderDirective]
 })
 export class CmNgxVideoLazyloaderModule { }
