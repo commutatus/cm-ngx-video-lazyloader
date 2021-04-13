@@ -1,27 +1,33 @@
 # CmNgxVideoLazyloader
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+CmNgxVideoLazyloader is an Angular library for lazy loading videos using IntersectionObserver.
 
-## Development server
+## Install
+
+```
+$ npm install --save CmNgxVideoLazyloader
+```
+
+## Usage
+
+1. Import `CmNgxVideoLazyloaderModule` into your root module.
+2. Add `libLazyloadVideo` directive to the video tag.
+3. Place the video url inside `data-src` attribute instead of `src` attribute. The url will be dynamically assinged to the `src` attribute when the video is in viewport.
+
+#### Example:
+
+```
+<video libLazyloadVideo class="card-video" loop autoplay muted id="1" poster="https://example.org/assets/Americas-poster.jpg">
+  <source data-src="https://example.org/assets/Americas.mp4" type="video/mp4" />
+      Browser not supported
+</video>
+```
+
+If you wish to lazy load the poster as well, then you can pass in an optional input param `[lazyLoadPoster]="true"` in the video tag and place the poster url inside the `data-poster` attribute. This attribute is set as `false` by default.
+
+#### Example:
+```<video libLazyloadVideo  [lazyLoadPoster]="true" data-poster="https://example.org/...></video>```
+
+## Test Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
