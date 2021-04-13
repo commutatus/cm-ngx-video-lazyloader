@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Lib Files
+/projects/cm-ngx-video-lazyloader/dist
+/projects/cm-ngx-video-lazyloader/node_modules

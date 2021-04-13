@@ -1,24 +1,33 @@
-# CmNgxVideoLazyloader
+# cm-ngx-video-lazyloader
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+`cm-ngx-video-lazyloader` is an Angular library for lazy loading videos using IntersectionObserver.
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name --project cm-ngx-video-lazyloader` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project cm-ngx-video-lazyloader`.
-> Note: Don't forget to add `--project cm-ngx-video-lazyloader` or else it will be added to the default project in your `angular.json` file. 
+```
+$ npm install --save cm-ngx-video-lazyloader
+```
 
-## Build
+## Usage
 
-Run `ng build cm-ngx-video-lazyloader` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Import `CmNgxVideoLazyloaderModule` into your root module.
+2. Add `libLazyloadVideo` directive to the video tag.
+3. Place the video url inside `data-src` attribute instead of `src` attribute. The url will be dynamically assinged to the `src` attribute when the video is in viewport.
 
-## Publishing
+#### Example:
 
-After building your library with `ng build cm-ngx-video-lazyloader`, go to the dist folder `cd dist/cm-ngx-video-lazyloader` and run `npm publish`.
+```
+<video libLazyloadVideo class="card-video" loop autoplay muted id="1" poster="https://example.org/assets/Americas-poster.jpg">
+  <source data-src="https://example.org/assets/Americas.mp4" type="video/mp4" />
+      Browser not supported
+</video>
+```
 
-## Running unit tests
+If you wish to lazy load the poster as well, then you can pass in an optional input param `[lazyLoadPoster]="true"` in the video tag and place the poster url inside the `data-poster` attribute. This attribute is set as `false` by default.
 
-Run `ng test cm-ngx-video-lazyloader` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Example:
+```<video libLazyloadVideo  [lazyLoadPoster]="true" data-poster="https://example.org/...></video>```
 
-## Further help
+## Test Development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
