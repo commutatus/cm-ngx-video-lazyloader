@@ -1,11 +1,11 @@
-# CmNgxVideoLazyloader
+# cm-ngx-video-lazyloader
 
-CmNgxVideoLazyloader is an Angular library for lazy loading videos using IntersectionObserver.
+`cm-ngx-video-lazyloader` is an Angular library for lazy loading videos using IntersectionObserver.
 
 ## Install
 
 ```
-$ npm install --save CmNgxVideoLazyloader
+$ npm install --save cm-ngx-video-lazyloader
 ```
 
 ## Usage
