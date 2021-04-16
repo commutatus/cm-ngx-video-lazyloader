@@ -1,7 +1,8 @@
 import { Directive, ElementRef, OnDestroy, OnInit, Input } from '@angular/core';
 
 @Directive({
-  selector: '[libLazyloadVideo]'
+  // tslint:disable-next-line:directive-selector
+  selector: '[lazyloadVideo]'
 })
 export class CmNgxVideoLazyloaderDirective implements OnInit, OnDestroy {
 
