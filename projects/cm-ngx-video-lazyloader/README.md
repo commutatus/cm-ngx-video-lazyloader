@@ -5,19 +5,19 @@
 ## Install
 
 ```
-$ npm install --save cm-ngx-video-lazyloader
+npm install --save cm-ngx-video-lazyloader
 ```
 
 ## Usage
 
 1. Import `CmNgxVideoLazyloaderModule` into your root module.
-2. Add `libLazyloadVideo` directive to the video tag.
+2. Add `lazyLoadVideo` directive to the video tag.
 3. Place the video url inside `data-src` attribute instead of `src` attribute. The url will be dynamically assinged to the `src` attribute when the video is in viewport.
 
 #### Example:
 
 ```
-<video libLazyloadVideo class="card-video" loop autoplay muted id="1" poster="https://example.org/assets/Americas-poster.jpg">
+<video lazyLoadVideo class="card-video" loop autoplay muted id="1" poster="https://example.org/assets/Americas-poster.jpg">
   <source data-src="https://example.org/assets/Americas.mp4" type="video/mp4" />
       Browser not supported
 </video>
@@ -26,7 +26,7 @@ $ npm install --save cm-ngx-video-lazyloader
 If you wish to lazy load the poster as well, then you can pass in an optional input param `[lazyLoadPoster]="true"` in the video tag and place the poster url inside the `data-poster` attribute. This attribute is set as `false` by default.
 
 #### Example:
-```<video libLazyloadVideo  [lazyLoadPoster]="true" data-poster="https://example.org/...></video>```
+```<video lazyLoadVideo  [lazyLoadPoster]="true" data-poster="https://example.org/...></video>```
 
 ## Test Development server
 
